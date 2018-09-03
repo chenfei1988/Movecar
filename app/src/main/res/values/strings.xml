@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">移动车管家</string>
+    <string name="imagesulr_address">http://219.153.12.102:8895/</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="loading_download_company_data"><Data><![CDATA[正在下载<big><b>公司</b></big>信息，请稍候...]]></Data></string>
+    <string name="loading_download_teamno_data"><Data><![CDATA[正在下载<big><b>车队</b></big>信息，请稍候...]]></Data></string>
+    <string name="loading_download_vehicle_data"><Data><![CDATA[正在下载<big><b>车辆</b></big>信息，请稍候...]]></Data></string>
+    <string name="loading_download_permission_data"><Data><![CDATA[正在下载<big><b>用户</b></big>信息，请稍候...]]></Data></string>
+    <string name="vehicle_info_text">共%1$s辆车，已选择%2$s辆</string>
+</resources>

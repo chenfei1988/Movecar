@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="IndexStickyView"><attr format="color" name="sideBarTextColor"/><attr format="color" name="sideBarFocusTextColor"/><attr format="color" name="sideBarFocusBackgroundColor"/><attr format="dimension" name="sideBarTextSize"/><attr format="color" name="sideBarBackgroundColor"/><attr format="dimension" name="sideBarTextSpace"/><attr format="dimension" name="sideBarWidth"/></declare-styleable>
+</resources>

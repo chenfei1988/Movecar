@@ -1,0 +1,6 @@
+<resources>
+    <item name="common_toolbar_view" type="id" />
+    <item name="common_toolbar_title_view" type="id" />
+    <item name="common_multi_state_view" type="id" />
+    <item name="common_refresh_view" type="id" />
+</resources>

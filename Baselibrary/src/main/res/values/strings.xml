@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BaseLibrary</string>
+    <string name="click_agin_exit">再次点击退出应用程序</string>
+
+</resources>

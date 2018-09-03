@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xinyiyun.chenfei.com.movecar.utils.view.MyNestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical" >
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/gray_hint"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:drawableLeft="@mipmap/icon_statistics_chart"
+                    android:drawablePadding="5dp"
+                    android:textColor="@color/black"
+                    android:text="车辆统计时间" />
+
+                <TextView
+                    android:id="@+id/statistics_txt_time"
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:text="" />
+                <ImageView
+                    android:id="@+id/time_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/newic_search_style"
+                    android:layout_marginRight="15dp" />
+
+            </LinearLayout>
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/mBarChart"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:visibility="invisible"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcl_infos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/cornerbg" />
+
+        </LinearLayout>
+</xinyiyun.chenfei.com.movecar.utils.view.MyNestedScrollView>

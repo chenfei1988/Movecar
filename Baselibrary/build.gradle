@@ -1,0 +1,107 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-noarg'
+apply plugin: 'kotlin-allopen'
+
+android {
+    compileSdkVersion 27
+
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+    lintOptions {
+        abortOnError false
+        absolutePaths false
+        lintConfig file("lint.xml")
+    }
+    packagingOptions {
+        exclude 'META-INF/*'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    kapt {
+        generateStubs = true
+    }
+
+}
+noArg {
+    annotation('xinyiyun.chenfei.com.baselibrary.common.Entity')
+}
+
+allOpen {
+    annotation('xinyiyun.chenfei.com.baselibrary.common.Entity')
+}
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api 'com.android.support:appcompat-v7:27.1.0'
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api 'com.android.support:design:27.1.0'
+    api 'com.android.support:cardview-v7:27.1.0'
+    api 'com.android.support.constraint:constraint-layout:1.0.2'
+    api "org.jetbrains.anko:anko-commons:$anko_version"
+    api "org.jetbrains.anko:anko-sdk25:$anko_version"
+    api "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+    api "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
+    api "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
+    api 'io.reactivex.rxjava2:rxkotlin:2.1.0'
+    api 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+    api 'com.trello.rxlifecycle2:rxlifecycle-kotlin:2.2.1'
+    api 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+    api 'com.squareup.okhttp3:okhttp:3.10.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    api 'com.squareup.retrofit2:retrofit:2.4.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    api 'com.squareup.retrofit2:converter-gson:2.4.0'
+    api 'com.github.bumptech.glide:okhttp3-integration:4.0.0@aar'
+    api 'com.github.bumptech.glide:glide:4.7.1'
+    kapt 'com.github.bumptech.glide:compiler:4.7.1'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.33'
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-alpha-12'
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-alpha-12'
+    api 'com.github.lygttpod:SuperTextView:2.1.6'
+    api 'com.yinglan.alphatabs:library:1.0.8'
+    api 'com.jude:rollviewpager:1.4.6'
+    api 'com.wang.avi:library:2.1.3'
+    api 'com.jaeger.statusbaruitl:library:1.4.0'
+    api 'de.hdodenhof:circleimageview:2.1.0'
+    api 'com.elvishew:xlog:1.4.0'
+    api 'com.jzxiang.pickerview:TimePickerDialog:1.0.1'
+    api 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+    api 'org.greenrobot:eventbus:3.1.1'
+    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    api 'com.github.florent37:viewanimator:1.0.5'
+    api 'com.flyco.dialog:FlycoDialog_Lib:1.3.2@aar'
+    api 'cn.ittiger:indexstickyview:1.1.0'
+    api 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    api 'com.android.support:multidex:1.0.3'
+    api 'com.wx.goodview:goodview:1.0.0'
+    api 'com.githang:status-bar-compat:0.7'
+    api 'me.jessyan:autosize:0.8.0' //今日头条屏幕适配
+    //WebService需要
+    api('com.squareup.retrofit2:converter-simplexml:2.1.0') {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
+}
+repositories {
+    mavenCentral()
+}

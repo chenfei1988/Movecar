@@ -1,0 +1,96 @@
+import java.text.SimpleDateFormat
+def releaseTime() {
+    return new SimpleDateFormat("yyyy-MM-dd").format(new Date())
+}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "xinyiyun.chenfei.com.movecar"
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    signingConfigs {
+        config {
+            keyAlias 'xinyiyun'
+            keyPassword 'chenfei'
+            storeFile file("keystore/xinyiyunappkey.jks")
+            storePassword 'chenfei'
+        }
+    }
+    buildTypes {
+
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+    greendao {
+        schemaVersion 5
+        daoPackage 'xinyiyun.chenfei.com.movecar.gen'
+        targetGenDir 'src/main/java'
+    }
+    lintOptions {
+        abortOnError false
+        absolutePaths false
+        lintConfig file("lint.xml")
+    }
+    packagingOptions {
+        exclude 'META-INF/*'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        applicationVariants.all { variant ->
+            variant.outputs.all { output ->
+                def outputFile = output.outputFile
+                def productFlavor = variant.productFlavors[0];
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    def productName = null
+                    if (productFlavor != null) {
+                        productName = productFlavor.name
+                        if (productName.startsWith("_")) {
+                            productName = productName.replace("_", "")
+                        }
+                    }
+                    def fileName = variant.buildType.name + "-" + releaseTime() + "-v" + defaultConfig.versionName + (productName == null ? "" : ("-" + productName)) + ".apk"
+                    outputFileName = fileName
+                }
+
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'org.greenrobot:greendao:3.2.2'
+    // add library
+    implementation 'com.github.promeg:tinypinyin:1.0.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    implementation project(':Baselibrary')
+}
